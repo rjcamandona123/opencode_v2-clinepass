@@ -44,8 +44,8 @@ The OpenCode V2 binary (linux-arm64) is also published as a **Release asset**
 (`v2.2.5`) in this repo, so a single command gets you running:
 
 ```sh
-git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
-cd acode-opencode_v2-clinepass
+git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git
+cd opencode_v2-clinepass
 ./setup.sh
 ```
 
@@ -59,7 +59,7 @@ Manual install (if you already have OpenCode V2):
 cp -r ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # Clone into a temp dir, then copy the body over
-git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git /tmp/oc-body
+git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git /tmp/oc-body
 mkdir -p ~/.config/opencode/plugins/lib ~/.config/opencode/plugins/background-work
 cp /tmp/oc-body/opencode.jsonc   ~/.config/opencode/
 cp /tmp/oc-body/cli.json         ~/.config/opencode/

@@ -2,8 +2,8 @@
 # setup.sh — install OpenCode V2 (binary bundled in this repo's Release) + body.
 #
 # Usage:
-#   git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
-#   cd acode-opencode_v2-clinepass
+#   git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git
+#   cd opencode_v2-clinepass
 #   ./setup.sh
 #
 # After it finishes, just run:  opencode
