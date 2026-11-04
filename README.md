@@ -70,18 +70,10 @@ The plugin registers the provider and its sign-in methods on load, so no
 
 ## Sign in
 
-Run `/connect` in OpenCode and pick **ClinePass**. Two methods are offered:
+Run `/connect` in OpenCode and pick **ClinePass**. The simplest method:
 
 1. **Static API key** — create one at
    [app.cline.bot → Settings → API Keys](https://app.cline.bot/settings/api-keys).
-2. **Cline CLI / ClinePass subscription (WorkOS)** — reuses an existing Cline CLI
-   login. Install the CLI and run `cline auth` once:
-   ```sh
-   npm i -g cline
-   cline auth
-   ```
-   WorkOS access tokens are refreshed automatically and rotated refresh tokens
-   are cached in plugin storage.
 
 Alternatively, set an environment variable and skip `/connect`:
 
@@ -90,7 +82,11 @@ export CLINE_API_KEY="your-cline-api-key"
 ```
 
 Credential resolution order: `CLINE_API_KEY` → active `/connect` connection →
-cached rotated OAuth token → legacy V1 `auth.json` → Cline CLI WorkOS login.
+cached rotated OAuth token → legacy V1 `auth.json`.
+
+> Note: a WorkOS/OAuth path that reuses an existing Cline CLI login also
+> exists in the code (`lib/auth.ts`), but it is optional and only relevant if
+> you already use Cline separately. No Cline CLI is required for this repo.
 
 ## Configuration
 
@@ -107,7 +103,7 @@ server password) is intentionally **not** shipped; create it locally if needed.
 ## How it works
 
 - `ctx.provider.transform` — registers `clinepass` and its model list.
-- `ctx.integration.transform` — registers the key / env / WorkOS sign-in methods.
+- `ctx.integration.transform` — registers the key / env sign-in methods.
 - `ctx.aisdk.hook("sdk", …)` — swaps a placeholder key for the live credential
   per request and attaches Cline client headers.
 - `ctx.storage` — caches rotated WorkOS refresh tokens.
