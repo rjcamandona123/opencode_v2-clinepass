@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-REPO="rjcamandona123/acode-opencode_v2-clinepass"
+REPO="rjcamandona123/opencode_v2-clinepass"
 TAG="v2.2.5"
 BIN_URL="https://github.com/${REPO}/releases/download/${TAG}/opencode"
 BIN_DIR="$HOME/.opencode/bin"
