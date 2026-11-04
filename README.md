@@ -9,7 +9,7 @@ This repository ships the **whole OpenCode body** (config files, package
 manifest, CLI settings, and plugins) — not just the provider plugin — so you can
 drop it straight into `~/.config/opencode` and run.
 
-No PHP. No bundled credentials. OpenCode **V2** only (`v2.2.5` was used during
+No bundled credentials. OpenCode **V2** only (`v2.2.5` was used during
 development); V1 plugins are not compatible.
 
 ## What you get
