@@ -5,7 +5,7 @@ as a provider: the ClinePass subscription catalog **plus Cline's rotating
 free-tier models** (including **Beam 1.0 (Free)**), served through Cline's
 OpenAI-compatible API at `https://api.cline.bot/api/v1`.
 
-This repository ships the **whole OpenCode body** (config files, package
+This repository ships the **whole OpenCode body** (my config files, package
 manifest, CLI settings, and plugins) — not just the provider plugin — so you can
 drop it straight into `~/.config/opencode` and run.
 
