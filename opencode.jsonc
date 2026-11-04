@@ -1,0 +1,40 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "openrouter": {
+      "name": "OpenRouter",
+      "apiKey": "",
+      "baseURL": "https://openrouter.ai/api/v1",
+      "models": {
+        "free": {
+          "name": "Free Models Router",
+          "maxTokens": 32768,
+          "pricing": {
+            "input": 0,
+            "output": 0
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "default": "librarian",
+    "agents": {
+      "librarian": {
+        "model": "openrouter/free"
+      },
+      "coder": {
+        "model": "openrouter/free"
+      },
+      "analyst": {
+        "model": "openrouter/free"
+      },
+      "architect": {
+        "model": "openrouter/free"
+      }
+    }
+  },
+  "plugins": [
+    "@magpie-community/opencode-cline-auth"
+  ]
+}

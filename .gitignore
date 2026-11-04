@@ -1,14 +1,10 @@
 # Dependencies
 node_modules/
-package-lock.json
 bun.lock
 
-# Local OpenCode config and credentials — never commit
-opencode.json
-opencode.jsonc
-auth.json
+# Local OpenCode credentials and secrets — never commit
 service.json
-cli.json
+auth.json
 .env
 .env.*
 *.key
