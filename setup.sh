@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# setup.sh — install OpenCode V2 + this ClinePass body in one step.
+# setup.sh — install OpenCode V2 (binary bundled in this repo's Release) + body.
 #
 # Usage:
 #   git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
@@ -10,16 +10,23 @@
 
 set -euo pipefail
 
-# 1. Install OpenCode V2 if it isn't already on PATH.
+REPO="rjcamandona123/acode-opencode_v2-clinepass"
+TAG="v2.2.5"
+BIN_URL="https://github.com/${REPO}/releases/download/${TAG}/opencode"
+BIN_DIR="$HOME/.opencode/bin"
+BIN_PATH="$BIN_DIR/opencode"
+
+# 1. Install the OpenCode V2 binary if it isn't already on PATH.
 if ! command -v opencode >/dev/null 2>&1; then
-  echo "==> Installing OpenCode V2..."
-  curl -fsSL https://opencode.ai/install | bash
-  # Make sure the installer's bin dir is on PATH for this shell.
-  export PATH="$HOME/.opencode/bin:$PATH"
+  echo "==> Downloading OpenCode V2 binary from this repo's Release..."
+  mkdir -p "$BIN_DIR"
+  curl -fL --progress-bar -o "$BIN_PATH" "$BIN_URL"
+  chmod +x "$BIN_PATH"
+  export PATH="$BIN_DIR:$PATH"
 fi
 
 if ! command -v opencode >/dev/null 2>&1; then
-  echo "ERROR: 'opencode' not found after install. Add ~/.opencode/bin to PATH and re-run." >&2
+  echo "ERROR: 'opencode' not found. Add $BIN_DIR to PATH and re-run." >&2
   exit 1
 fi
 
@@ -31,13 +38,13 @@ OC_DIR="$HOME/.config/opencode"
 echo "==> Installing body into $OC_DIR"
 mkdir -p "$OC_DIR/plugins/lib" "$OC_DIR/plugins/background-work"
 
-cp -f "$SCRIPT_DIR/opencode.jsonc"   "$OC_DIR/"
-cp -f "$SCRIPT_DIR/cli.json"         "$OC_DIR/"
-cp -f "$SCRIPT_DIR/package.json"     "$OC_DIR/"
+cp -f "$SCRIPT_DIR/opencode.jsonc"    "$OC_DIR/"
+cp -f "$SCRIPT_DIR/cli.json"          "$OC_DIR/"
+cp -f "$SCRIPT_DIR/package.json"      "$OC_DIR/"
 cp -f "$SCRIPT_DIR/package-lock.json" "$OC_DIR/"
-cp -f "$SCRIPT_DIR/plugins/clinepass.ts"        "$OC_DIR/plugins/"
-cp -f "$SCRIPT_DIR/plugins/clinepass.v1.ts.bak" "$OC_DIR/plugins/" 2>/dev/null || true
-cp -f "$SCRIPT_DIR/plugins/lib/"*.ts            "$OC_DIR/plugins/lib/"
+cp -f "$SCRIPT_DIR/plugins/clinepass.ts"         "$OC_DIR/plugins/"
+cp -f "$SCRIPT_DIR/plugins/clinepass.v1.ts.bak"  "$OC_DIR/plugins/" 2>/dev/null || true
+cp -f "$SCRIPT_DIR/plugins/lib/"*.ts             "$OC_DIR/plugins/lib/"
 cp -f "$SCRIPT_DIR/plugins/background-work/"*.ts "$OC_DIR/plugins/background-work/"
 
 # 3. Install the plugin dependency.

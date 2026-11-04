@@ -40,7 +40,19 @@ free models is used, so the provider always loads.
 
 ## Install (whole body)
 
-Copy the repository contents into your OpenCode config directory:
+The OpenCode V2 binary (linux-arm64) is also published as a **Release asset**
+(`v2.2.5`) in this repo, so a single command gets you running:
+
+```sh
+git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
+cd acode-opencode_v2-clinepass
+./setup.sh
+```
+
+`setup.sh` downloads the bundled binary, copies the body into `~/.config/opencode`,
+and runs `npm install`. After it finishes, just run `opencode`.
+
+Manual install (if you already have OpenCode V2):
 
 ```sh
 # Back up your existing config first
