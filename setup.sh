@@ -20,7 +20,7 @@ BIN_PATH="$BIN_DIR/opencode"
 if ! command -v opencode >/dev/null 2>&1; then
   echo "==> Downloading OpenCode V2 binary from this repo's Release..."
   mkdir -p "$BIN_DIR"
-  curl -fL --progress-bar -o "$BIN_PATH" "$BIN_URL"
+  curl -fL --http2 --tcp-fastopen -C - --retry 5 --retry-delay 2 --connect-timeout 30 --progress-bar -o "$BIN_PATH" "$BIN_URL"
   chmod +x "$BIN_PATH"
   export PATH="$BIN_DIR:$PATH"
 fi
