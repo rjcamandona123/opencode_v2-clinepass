@@ -10,7 +10,7 @@ OpenAI-compatible API at `https://api.cline.bot/api/v1`.
 <br>
 
 <p align="center">
-  <a href="https://github.com/rjcamandona123/acode-opencode_v2-clinepass"><img src="https://img.shields.io/badge/GitHub-acode--opencode__v2--clinepass-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub repo"></a>
+  <a href="https://github.com/rjcamandona123/opencode_v2-clinepass"><img src="https://img.shields.io/badge/GitHub-acode--opencode__v2--clinepass-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub repo"></a>
   <a href="https://opencode.ai"><img src="https://img.shields.io/badge/OpenCode-2.x-000000?style=for-the-badge" alt="OpenCode 2.x"></a>
   <a href="https://cline.bot"><img src="https://img.shields.io/badge/ClinePass-cline.bot-6C47FF?style=for-the-badge" alt="ClinePass"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-000000?style=for-the-badge" alt="License MIT"></a>
@@ -61,8 +61,8 @@ The OpenCode V2 binary (linux-arm64) is also published as a **Release asset**
 (`v2.2.5`) in this repo, so a single command gets you running:
 
 ```sh
-git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
-cd acode-opencode_v2-clinepass
+git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git
+cd opencode_v2-clinepass
 ./setup.sh
 ```
 
@@ -76,7 +76,7 @@ Manual install (if you already have OpenCode V2):
 cp -r ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # Clone into a temp dir, then copy the body over
-git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git /tmp/oc-body
+git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git /tmp/oc-body
 mkdir -p ~/.config/opencode/plugins/lib ~/.config/opencode/plugins/background-work
 cp /tmp/oc-body/opencode.jsonc   ~/.config/opencode/
 cp /tmp/oc-body/cli.json         ~/.config/opencode/
