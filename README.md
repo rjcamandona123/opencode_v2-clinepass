@@ -1,16 +1,33 @@
-# OpenCode V2 — ClinePass provider (full body)
+<div align="center">
 
-A complete **OpenCode V2** configuration body that adds [ClinePass](https://cline.bot)
+# OpenCode V2 — ClinePass Provider (full body)
+
+**A complete OpenCode V2 configuration body** that adds [ClinePass](https://cline.bot)
 as a provider: the ClinePass subscription catalog **plus Cline's rotating
 free-tier models** (including **Beam 1.0 (Free)**), served through Cline's
 OpenAI-compatible API at `https://api.cline.bot/api/v1`.
 
-This repository ships the **whole OpenCode body** (my config files, package
-manifest, CLI settings, and plugins) — not just the provider plugin — so you can
-drop it straight into `~/.config/opencode` and run.
+<br>
 
-No bundled credentials. OpenCode **V2** only (`v2.2.5` was used during
-development); V1 plugins are not compatible.
+<p align="center">
+  <a href="https://github.com/rjcamandona123/acode-opencode_v2-clinepass"><img src="https://img.shields.io/badge/GitHub-acode--opencode__v2--clinepass-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub repo"></a>
+  <a href="https://opencode.ai"><img src="https://img.shields.io/badge/OpenCode-2.x-000000?style=for-the-badge" alt="OpenCode 2.x"></a>
+  <a href="https://cline.bot"><img src="https://img.shields.io/badge/ClinePass-cline.bot-6C47FF?style=for-the-badge" alt="ClinePass"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-000000?style=for-the-badge" alt="License MIT"></a>
+</p>
+
+<br>
+
+> This repository ships the **whole OpenCode body** (config files, package
+> manifest, CLI settings, and plugins) — not just the provider plugin — so you
+> can drop it straight into `~/.config/opencode` and run.
+>
+> No bundled credentials. OpenCode **V2** only (`v2.2.5` used during
+> development); V1 plugins are not compatible.
+
+</div>
+
+<br>
 
 ## What you get
 
@@ -44,8 +61,8 @@ The OpenCode V2 binary (linux-arm64) is also published as a **Release asset**
 (`v2.2.5`) in this repo, so a single command gets you running:
 
 ```sh
-git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git
-cd opencode_v2-clinepass
+git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git
+cd acode-opencode_v2-clinepass
 ./setup.sh
 ```
 
@@ -59,7 +76,7 @@ Manual install (if you already have OpenCode V2):
 cp -r ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # Clone into a temp dir, then copy the body over
-git clone https://github.com/rjcamandona123/opencode_v2-clinepass.git /tmp/oc-body
+git clone https://github.com/rjcamandona123/acode-opencode_v2-clinepass.git /tmp/oc-body
 mkdir -p ~/.config/opencode/plugins/lib ~/.config/opencode/plugins/background-work
 cp /tmp/oc-body/opencode.jsonc   ~/.config/opencode/
 cp /tmp/oc-body/cli.json         ~/.config/opencode/
