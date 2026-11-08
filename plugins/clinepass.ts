@@ -332,12 +332,25 @@ function staticModels() {
  * otherwise the curated static list. Never fail setup because discovery failed.
  */
 async function loadModels(ctx) {
+  // Start with the static curated list so activation never fails on network errors.
   let source = modelsToConfig()
 
-  const auth = await resolveAuth(ctx).catch(() => undefined)
-  const key = extractKey(auth)
-  const remote = await fetchRecommendedModels(key).catch(() => undefined)
-  if (remote) source = remote
+  try {
+    const auth = await resolveAuth(ctx)
+    const key = extractKey(auth)
+    const remote = await fetchRecommendedModels(key)
+
+    // Only replace the static list if the remote catalog has subscription models.
+    // An empty or missing subscription list means the user has no active plan,
+    // so we keep the guaranteed static fallback.
+    if (remote && remote.clinePass && Object.keys(remote.clinePass).length > 0) {
+      source = remote
+    }
+  } catch {
+    // Any error during remote discovery — network, auth, parse — is silently
+    // ignored and the static list is used instead. Never let a failed fetch
+    // cause an internal server error or empty model list.
+  }
 
   return Object.entries(source).map(([id, model]) => toModelInfo(id, model))
 }
